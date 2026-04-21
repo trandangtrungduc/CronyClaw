@@ -1,0 +1,13 @@
+{
+    "mcp_servers": {
+        "local-exec": {
+        "command": "python",
+        "args": ["src/cronyclaw/mcpp/mcp_local_server/local_exec.py"],
+        "cwd": "."
+      },
+      "ddg-search": {
+        "command": "uvx",
+        "args": ["duckduckgo-mcp-server"]
+      }
+    }
+}

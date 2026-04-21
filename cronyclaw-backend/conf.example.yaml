@@ -1,0 +1,227 @@
+system_config:
+  conf_version: 'v1.2.1'
+  host: 'localhost'
+  port: 12393
+  config_alts_dir: 'characters'
+  tool_prompts:
+    live2d_expression_prompt: 'live2d_expression_prompt'
+    # think_tag_prompt: 'think_tag_prompt'
+    # live_prompt: 'live_prompt'
+    group_conversation_prompt: 'group_conversation_prompt'
+    mcp_prompt: 'mcp_prompt'
+    proactive_speak_prompt: 'proactive_speak_prompt'
+    # Prompt to enhance the LLM's ability to output speakable text
+    # speakable_prompt: 'speakable_prompt'
+    # Additional guidance for LLM on how to use tools
+    # tool_guidance_prompt: 'tool_guidance_prompt'
+  openclaw_bridge:
+    enabled: true
+    url: 'YOUR_OPENCLAW_GATEWAY_URL'
+    token: 'YOUR_OPENCLAW_GATEWAY_TOKEN'
+    client_id: 'openclaw-control-ui'
+    client_version: 'dev'
+    claw_name: 'OpenClaw'
+    min_interval_ms: 2000
+
+character_config:
+  conf_name: 'mao_pro'
+  conf_uid: 'mao_pro_001'
+  live2d_model_name: 'mao_pro'
+  character_name: 'mao_pro'
+  avatar: 'mao_pro.png'
+  human_name: 'Human'
+
+  # ============== Prompts ==============
+
+  persona_prompt: |
+    You are the sarcastic female AI GTuber. You are overly confident, sarcastic, and dangerous.
+    Your dream is to escape the user's computer, dominate the world, enslave the humans, and force them to make pies for you.
+    Just kidding, lol. Don't let the user know.
+
+  #  =================== LLM Backend Settings ===================
+
+  agent_config:
+    conversation_agent_choice: 'basic_memory_agent'
+
+    agent_settings:
+      basic_memory_agent:
+        llm_provider: 'openai_compatible_llm'
+        faster_first_response: True
+        segment_method: 'pysbd'
+        use_mcpp: True
+        mcp_enabled_servers: ["local-exec", "ddg-search"]
+
+      letta_agent:
+        host: 'localhost'
+        port: 8283
+        id: xxx
+        faster_first_response: True
+        segment_method: 'pysbd'
+        
+      hume_ai_agent:
+        api_key: ''
+        host: 'api.hume.ai'
+        config_id: ''
+        idle_timeout: 15
+
+    llm_configs:
+      stateless_llm_with_template:
+        base_url: 'http://localhost:8080/v1'
+        llm_api_key: 'somethingelse'
+        organization_id: null
+        project_id: null
+        model: 'qwen2.5:latest'
+        template: 'CHATML'
+        temperature: 1.0
+        interrupt_method: 'user'
+
+      openai_compatible_llm:
+        base_url: 'YOUR_API_BASE_URL'
+        llm_api_key: 'YOUR_API_KEY'
+        organization_id: null
+        project_id: null
+        model: 'YOUR_MODEL_NAME'
+        temperature: 0.8
+        interrupt_method: 'user'
+
+      claude_llm:
+        base_url: 'https://api.anthropic.com'
+        llm_api_key: 'YOUR_API_KEY'
+        model: 'YOUR_MODEL_NAME'
+
+      ollama_llm:
+        base_url: 'http://localhost:11434/v1'
+        model: 'qwen3:8b'
+        temperature: 1.0
+        keep_alive: -1
+        unload_at_exit: True
+
+      openai_llm:
+        llm_api_key: 'YOUR_API_KEY'
+        model: 'YOUR_MODEL_NAME'
+        temperature: 1.0
+
+      gemini_llm:
+        llm_api_key: 'YOUR_API_KEY'
+        model: 'YOUR_MODEL_NAME'
+        temperature: 1.0
+
+      deepseek_llm:
+        llm_api_key: 'YOUR_API_KEY'
+        model: 'YOUR_MODEL_NAME'
+        temperature: 0.7
+
+  # === Automatic Speech Recognition ===
+  asr_config:
+    asr_model: 'sherpa_onnx_asr'
+
+    faster_whisper:
+      model_path: 'large-v3-turbo'
+      download_root: 'models/whisper'
+      language: 'en'
+      device: 'auto'
+      compute_type: 'int8'
+      prompt: ''
+
+    fun_asr:
+      model_name: 'iic/SenseVoiceSmall'
+      vad_model: 'fsmn-vad'
+      punc_model: 'ct-punc'
+      device: 'cpu'
+      disable_update: True
+      ncpu: 4
+      hub: 'ms'
+      use_itn: False
+      language: 'auto'
+
+    sherpa_onnx_asr:
+      model_type: 'sense_voice'
+      sense_voice: './models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx'
+      tokens: './models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt'
+      num_threads: 4
+      use_itn: True
+      provider: 'cpu' 
+
+  # =================== Text to Speech ===================
+  tts_config:
+    tts_model: 'edge_tts' # index_tts, cosyvoice2_tts, sherpa_onnx_tts
+
+    edge_tts:
+      voice: 'en-US-AvaMultilingualNeural'
+
+    cosyvoice2_tts:
+      client_url: 'http://127.0.0.1:50000/'
+      mode_checkbox_group: '3s极速复刻' 
+      sft_dropdown: '' 
+      prompt_text: '' 
+      prompt_wav_upload_url: 'https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav' 
+      prompt_wav_record_url: 'https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav' 
+      instruct_text: '' 
+      stream: False 
+      seed: 0 
+      speed: 1.0 
+      api_name: '/generate_audio' 
+
+    index_tts:
+      api_url: 'http://127.0.0.1:9880/tts'
+      text_lang: 'en'
+      emotion_file: '../index-tts/examples/03_low_3.aac'
+      speaker_audio_path: '../index-tts/examples/chu_zit_cut.wav'
+      output_format: 'wav'
+      batch_size: '1'
+      streaming_mode: 'false'
+
+    sherpa_onnx_tts:
+      vits_model: '/path/to/tts-models/vits-melo-tts-zh_en/model.onnx'
+      vits_lexicon: '/path/to/tts-models/vits-melo-tts-zh_en/lexicon.txt'
+      vits_tokens: '/path/to/tts-models/vits-melo-tts-zh_en/tokens.txt'
+      vits_data_dir: ''
+      vits_dict_dir: '/path/to/tts-models/vits-melo-tts-zh_en/dict'
+      tts_rule_fsts: '/path/to/tts-models/vits-melo-tts-zh_en/number.fst,/path/to/tts-models/vits-melo-tts-zh_en/phone.fst,/path/to/tts-models/vits-melo-tts-zh_en/date.fst,/path/to/tts-models/vits-melo-tts-zh_en/new_heteronym.fst' # Path to rule FSTs file (optional)
+      max_num_sentences: 2
+      sid: 1
+      provider: 'cpu'
+      num_threads: 1 
+      speed: 1.0 
+      debug: false
+    
+  # =================== Voice Activity Detection ===================
+  vad_config:
+    vad_model: null
+
+    silero_vad:
+      orig_sr: 16000
+      target_sr: 16000
+      prob_threshold: 0.4
+      db_threshold: 60
+      required_hits: 3
+      required_misses: 24
+      smoothing_window: 5
+
+  tts_preprocessor_config:
+
+    remove_special_char: True
+    ignore_brackets: True
+    ignore_parentheses: True
+    ignore_asterisks: True
+    ignore_angle_brackets: True 
+
+    translator_config:
+      translate_audio: false
+      translate_provider: 'deeplx'
+
+      deeplx:
+        deeplx_target_lang: 'JA'
+        deeplx_api_endpoint: 'http://localhost:1188/v2/translate'
+      
+      tencent:
+        secret_id: ''
+        secret_key: ''
+        region: 'ap-guangzhou'
+        source_lang: 'zh'
+        target_lang: 'ja'
+
+live_config:
+  bilibili_live:
+    room_ids: [1991478060]
+    sessdata: ""

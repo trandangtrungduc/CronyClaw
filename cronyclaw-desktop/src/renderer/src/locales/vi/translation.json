@@ -1,0 +1,142 @@
+{
+  "common": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "settings": "Cài đặt",
+    "close": "Đóng",
+    "accept": "Chấp nhận"
+  },
+  "settings": {
+    "tabs": {
+      "general": "Chung",
+      "live2d": "Live2D",
+      "asr": "ASR",
+      "tts": "TTS",
+      "agent": "Agent",
+      "about": "Giới thiệu"
+    },
+    "general": {
+      "language": "Ngôn ngữ",
+      "useCameraBackground": "Dùng nền camera",
+      "showSubtitle": "Hiển thị phụ đề",
+      "backgroundImage": "Ảnh nền",
+      "customBgUrlPlaceholder": "Nhập URL ảnh",
+      "customBgUrl": "Hoặc nhập URL nền tùy chỉnh",
+      "characterPreset": "Mẫu nhân vật",
+      "wsUrl": "Địa chỉ WebSocket",
+      "baseUrl": "Base URL",
+      "imageCompressionQuality": "Chất lượng nén ảnh",
+      "imageCompressionQualityHelp": "Chất lượng nén JPEG (0.1-1.0). Mặc định là 0.8 để giảm kích thước tệp khi gửi ảnh tới mô hình AI vì ảnh không được nén thêm trong lúc truyền API, có thể làm tệp quá lớn.",
+      "imageMaxWidth": "Chiều rộng ảnh tối đa",
+      "imageMaxWidthHelp": "Chiều rộng tối đa khi resize ảnh. Ảnh vượt quá giá trị này sẽ được thu nhỏ theo tỉ lệ. Đặt 0 để không giới hạn. Tính năng này hữu ích vì một số mô hình AI có thể bị giới hạn với ảnh quá lớn. Tuy nhiên đa số mô hình xử lý ảnh tự động tốt nên mặc định là 0 để giữ nguyên chất lượng ảnh gốc.",
+      "openclawBridgeUrl": "URL OpenClaw Bridge",
+      "openclawBridgeToken": "Token OpenClaw Bridge",
+      "openclawBridgeCheck": "Kết nối và kiểm tra Bridge",
+      "openclawBridgeConnected": "OpenClaw bridge đã kết nối",
+      "openclawBridgeNotConnected": "OpenClaw bridge chưa kết nối"
+    },
+    "live2d": {
+      "pointerInteractive": "Tương tác con trỏ",
+      "scrollToResize": "Bật cuộn để thay đổi kích thước"
+    },
+    "asr": {
+      "autoStopMic": "Tự tắt mic khi AI bắt đầu nói",
+      "autoStopMicDesc": "Tự động tắt micro khi AI bắt đầu nói để tránh phản hồi âm thanh",
+      "autoStartMicOnConvEnd": "Tự bật mic khi cuộc hội thoại kết thúc",
+      "autoStartMicOnConvEndDesc": "Tự động bật lại micro khi AI nói xong để hội thoại liền mạch",
+      "autoStartMicOn": "Tự bật mic khi AI bị ngắt",
+      "autoStartMicOnDesc": "Tự động bật lại micro khi bạn ngắt AI để tiếp tục tương tác",
+      "positiveSpeechThreshold": "Ngưỡng xác suất giọng nói",
+      "positiveSpeechThresholdDesc": "Mức tin cậy tối thiểu (1-100) để nhận diện giọng nói. Giá trị cao hơn giúp giảm phát hiện sai",
+      "negativeSpeechThreshold": "Ngưỡng âm tính giọng nói",
+      "negativeSpeechThresholdDesc": "Mức tin cậy (0-100) mà dưới đó hệ thống dừng nhận diện giọng nói. Giá trị thấp hơn sẽ ít nhạy hơn",
+      "redemptionFrames": "Số khung xác nhận",
+      "redemptionFramesDesc": "Số khung liên tiếp (1-100) cần để xác nhận giọng nói. Giá trị cao hơn giúp giảm nhiễu"
+    },
+    "agent": {
+      "allowProactiveSpeak": "Cho phép AI chủ động nói",
+      "idleSecondsToSpeak": "Số giây nhàn rỗi để AI được nói",
+      "allowButtonTrigger": "Gợi ý AI nói bằng nút giơ tay"
+    },
+    "about": {
+      "title": "CronyClaw Desktop",
+      "version": "Phiên bản",
+      "projectLinks": "Liên kết dự án",
+      "github": "GitHub",
+      "documentation": "Tài liệu",
+      "copyright": "Bản quyền",
+      "viewLicense": "Xem giấy phép"
+    }
+  },
+  "footer": {
+    "slashCommandMode": "Lệnh: {{command}}",
+    "typeYourMessage": "Nhập tin nhắn...",
+    "cameraControl": "Nhấn để bật camera",
+    "cameraStopping": "Nhấn để tắt camera",
+    "screenControl": "Nhấn để bắt đầu chia sẻ màn hình",
+    "screenStopping": "Nhấn để dừng chia sẻ màn hình"
+  },
+  "sidebar": {
+    "camera": "Camera",
+    "screen": "Màn hình",
+    "browser": "Trình duyệt",
+    "live": "Live",
+    "noMessages": "Chưa có tin nhắn. Hãy bắt đầu hội thoại!",
+    "noBrowserSession": "Không có phiên trình duyệt đang hoạt động",
+    "browserSession": "Phiên trình duyệt"
+  },
+  "group": {
+    "management": "Quản lý nhóm",
+    "yourUuid": "UUID của bạn",
+    "inviteMember": "Mời thành viên",
+    "enterMemberUuid": "Nhập UUID thành viên",
+    "invite": "Mời",
+    "members": "Thành viên",
+    "you": "Bạn",
+    "leaveGroup": "Rời nhóm",
+    "removeMember": "Xóa thành viên",
+    "leave": "Rời"
+  },
+  "history": {
+    "chatHistoryList": "Danh sách lịch sử chat",
+    "noMessages": "Không có tin nhắn"
+  },
+  "notification": {
+    "characterLoaded": "Đã tải nhân vật mới",
+    "characterSwitched": "Đã đổi nhân vật",
+    "historyLoaded": "Đã tải lịch sử",
+    "newConversation": "Đã bắt đầu cuộc hội thoại mới",
+    "newChatHistory": "Đã tạo lịch sử chat mới",
+    "historyDeleteSuccess": "Xóa lịch sử thành công",
+    "historyDeleteFail": "Xóa lịch sử thất bại"
+  },
+  "error": {
+    "cameraApiNotSupported": "Thiết bị này không hỗ trợ Camera API",
+    "noCameraFound": "Không tìm thấy camera trên thiết bị",
+    "failedStartCamera": "Không thể khởi động camera",
+    "failedStartBackgroundCamera": "Không thể khởi động camera nền",
+    "failedStartScreenCapture": "Không thể khởi động chia sẻ màn hình",
+    "failedStartVAD": "Không thể khởi động VAD",
+    "llmCantHear": "LLM không nghe thấy bạn.",
+    "audioPlayback": "Lỗi phát âm thanh",
+    "enterValidUuid": "Vui lòng nhập UUID hợp lệ",
+    "cannotDeleteCurrentHistory": "Không thể xóa lịch sử chat hiện tại",
+    "failedCapture": "Không thể chụp khung hình {{source}}",
+    "failedParseWebSocket": "Không thể phân tích thông điệp WebSocket",
+    "websocketNotOpen": "WebSocket chưa mở.",
+    "vadMisfire": "Đã phát hiện giọng nói nhưng quá ngắn. Hãy nói to/lâu hơn hoặc điều chỉnh cài đặt (giảm ngưỡng giọng nói, giảm ngưỡng âm tính, giảm số khung xác nhận)."
+  },
+  "aiState": {
+    "idle": "nhàn rỗi",
+    "thinking-speaking": "đang nghĩ/đang nói",
+    "interrupted": "đã bị ngắt",
+    "loading": "đang tải",
+    "listening": "đang nghe",
+    "waiting": "đang chờ"
+  },
+  "wsStatus": {
+    "connected": "Đã kết nối",
+    "connecting": "Đang kết nối",
+    "clickToReconnect": "Nhấn để kết nối lại"
+  }
+}

@@ -1,0 +1,9 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crony-backend
+    ports:
+      - "12393:12393"
+    restart: unless-stopped
